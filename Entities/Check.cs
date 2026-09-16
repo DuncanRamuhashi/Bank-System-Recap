@@ -13,7 +13,7 @@ namespace Bank_System_Recap.Entities
         }
         public override string welcomeMessage()
         {
-            return base.welcomeMessage() + " on opening your Check account";
+            return base.welcomeMessage() + " on opening your Check account" ;
         }
     
     }
