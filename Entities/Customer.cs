@@ -13,10 +13,22 @@ namespace Bank_System_Recap.Entities
         private Account _Account;
 
 
-       public Customer() { 
-        
-        
+         public Customer(string id, string name, bool accountChoice) { 
+             _IdNumber = id;
+             _Name = name;
+             
+
+            if(accountChoice) {
+
+               _Account= new Saving(name);
+            } else
+            { 
+               _Account = new Check(name);
+            }
+
         }
+
+
 
 
     }
