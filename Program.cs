@@ -85,6 +85,7 @@ namespace Bank_System_Recap
 
                 // 
                 Console.Clear();
+             
                 client.displayCustomerInfo();
 
 

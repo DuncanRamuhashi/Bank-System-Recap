@@ -11,7 +11,7 @@ namespace Bank_System_Recap.Entities
         private string _IdNumber;
         private string _Name;
         private Account _Account;
-
+        private string _accountType;
 
         public Customer(string id, string name, bool accountChoice)
         {
@@ -21,10 +21,12 @@ namespace Bank_System_Recap.Entities
             if (accountChoice)
             {
                 _Account = new Saving(name);
+                _accountType = "Savings";
             }
             else
             {
                 _Account = new Check(name);
+                _accountType = "Check";
             }
         }
 
@@ -65,10 +67,11 @@ namespace Bank_System_Recap.Entities
 
         public void displayCustomerInfo()
         {
+            Console.WriteLine(_Account.welcomeMessage());
             Console.WriteLine("Account Number: " + _Account.getAccountNumber());
             Console.WriteLine("Customer ID: " + _IdNumber);
             Console.WriteLine("Customer Name: " + _Name);
-            Console.WriteLine(_Account.welcomeMessage());
+            Console.WriteLine("Type of Account: "+ _accountType);
             Console.WriteLine("Balance: R" + _Account.getBalance());
         }
     }
