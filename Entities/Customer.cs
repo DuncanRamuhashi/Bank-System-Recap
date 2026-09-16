@@ -65,6 +65,7 @@ namespace Bank_System_Recap.Entities
 
         public void displayCustomerInfo()
         {
+            Console.WriteLine("Account Number: " + _Account.getAccountNumber());
             Console.WriteLine("Customer ID: " + _IdNumber);
             Console.WriteLine("Customer Name: " + _Name);
             Console.WriteLine(_Account.welcomeMessage());

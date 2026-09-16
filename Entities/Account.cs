@@ -13,7 +13,7 @@ namespace Bank_System_Recap.Entities
         private string _accountHolderName;
         public Account( string accountHolderName) { 
                Random  randomID = new Random();
-               _id = randomID.Next(1000, 9999);
+               _id = randomID.Next(100000, 8889999);
                _balance = 0;
                _accountHolderName = accountHolderName;
 
@@ -21,19 +21,30 @@ namespace Bank_System_Recap.Entities
         public void depositMoney(decimal amount) { 
            
             _balance += amount;
+            if (_balance < 0)
+            {
+                _balance = 0;
+            }
         }
 
-        public void withdrawMoney(decimal amount) { 
+        public void withdrawMoney(decimal amount)
+        {
+
+
             _balance -= amount;
+            if (_balance < 0)
+            {
+                 _balance = 0;
+            }
         }
         public decimal getBalance()
         {
             return _balance;
         }
-
+        public int getAccountNumber() { return _id; }
         public virtual string welcomeMessage() {
 
-            return "Welcome " + _accountHolderName;
+            return "Welcome " + _accountHolderName + "\n" ;
         }
 
     }

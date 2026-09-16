@@ -48,22 +48,30 @@ namespace Bank_System_Recap
                     Console.WriteLine("1. Savings Account");
                     Console.WriteLine("2. Checking Account");
 
-                    int choiceint = int.Parse(Console.ReadLine());
-                    if (choiceint == 1)
+                    try
                     {
-                        accountChoice = true;
-                        break;
-                    }
-                    else if (choiceint == 2)
-                    {
-                        accountChoice = false;
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid choice. Please try again.");
+                        int choiceint = int.Parse(Console.ReadLine());
+                        if (choiceint == 1)
+                        {
+                            accountChoice = true;
+                            break;
+                        }
+                        else if (choiceint == 2)
+                        {
+                            accountChoice = false;
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid choice. Please try again.");
 
+                        }
                     }
+                    catch{
+                        Console.WriteLine("Invalid input. Please enter a number.");
+                    }
+                  
+                   
 
                 }
 
@@ -81,20 +89,49 @@ namespace Bank_System_Recap
 
 
                 // Deposit money
-                Console.WriteLine("How much you want to deposit?");
-                decimal deposit = decimal.Parse(Console.ReadLine());
-                client.Deposit(deposit);
 
-                Console.Clear();
-                client.displayCustomerInfo();
+                while (true)
+                {
+
+                    Console.WriteLine("How much you want to deposit?");
+                    try
+                    {
+                        decimal deposit = decimal.Parse(Console.ReadLine());
+                        client.Deposit(deposit);
+                        Console.Clear();
+                        client.displayCustomerInfo();
+                        break;
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Only number characters are allowed");
+                    }
+
+
+
+                }
+
+
 
                 //Withdraw money
-                Console.WriteLine("How much you want to withdra");
-                decimal withdraw = decimal.Parse(Console.ReadLine());
-                client.Withdraw(withdraw);
-                Console.Clear();
-                client.displayCustomerInfo();
 
+                while (true) {
+                    Console.WriteLine("How much you want to withdra");
+                    try {
+
+                       
+                        decimal withdraw = decimal.Parse(Console.ReadLine());
+                        client.Withdraw(withdraw);
+                        Console.Clear();
+                        client.displayCustomerInfo();
+                        break;
+                    } catch {
+
+                        Console.WriteLine("Only number characters are allowed");
+                    }
+                
+                }
+                
                 Console.WriteLine();
                 Console.WriteLine("Press any key to exit...");
                 Console.ReadKey();
